@@ -1,0 +1,103 @@
+# BookApp - Application Angular + Spring Boot
+
+Une application web complète pour gérer des livres avec authentification JWT, développée avec Angular (frontend) et Spring Boot (backend), utilisant MySQL pour la base de données.
+
+---
+
+## 🔧 Technologies utilisées
+
+- **Frontend** : Angular
+- **Backend** : Java Spring Boot
+- **Base de données** : MySQL
+- **Authentification** : Spring Security + JWT
+
+---
+
+## 📁 Structure du projet
+
+bookapp-frontend/ # Projet Angular
+bookapp-backend/ # Projet Spring Boot
+
+yaml
+Copier
+Modifier
+
+---
+
+## 🚀 Installation et exécution
+
+### 1. Pré-requis
+
+- Node.js et Angular CLI
+- Java JDK 17+
+- MySQL
+- Maven
+
+---
+
+### 2. Configuration de la base de données (MySQL)
+
+Crée une base de données dans MySQL :
+
+```sql
+CREATE DATABASE bookapp;
+Dans bookapp-backend/src/main/resources/application.properties :
+
+properties
+Copier
+Modifier
+spring.datasource.url=jdbc:mysql://localhost:3306/bookapp
+spring.datasource.username=your_mysql_username
+spring.datasource.password=your_mysql_password
+spring.jpa.hibernate.ddl-auto=update
+3. Lancer le backend Spring Boot
+bash
+Copier
+Modifier
+cd bookapp-backend
+mvn clean install
+mvn spring-boot:run
+Le backend sera accessible sur : http://localhost:8080
+
+4. Lancer le frontend Angular
+bash
+Copier
+Modifier
+cd bookapp-frontend
+npm install
+ng serve
+Le frontend sera accessible sur : http://localhost:4200
+
+🔐 Authentification JWT
+L'application utilise des jetons JWT pour l'authentification :
+
+Inscription : POST /api/auth/register
+
+Connexion : POST /api/auth/login
+
+Les routes sécurisées nécessitent l'en-tête HTTP :
+
+makefile
+Copier
+Modifier
+Authorization: Bearer <votre_token_JWT>
+📚 Fonctionnalités
+✅ Inscription & Connexion avec Spring Security & JWT
+
+✅ CRUD complet sur les livres
+
+✅ Sécurisation des routes backend
+
+✅ Interface Angular responsive
+
+📦 Endpoints backend
+Méthode	URL	Description
+POST	/api/auth/register	Inscription utilisateur
+POST	/api/auth/login	Connexion utilisateur
+GET	/api/books	Liste des livres (auth)
+POST	/api/books	Ajouter un livre (auth)
+PUT	/api/books/{id}	Modifier un livre (auth)
+DELETE	/api/books/{id}	Supprimer un livre (auth)
+
+✍️ Auteur
+Développé avec ❤️ par Ibrahima ba.
